@@ -1,13 +1,7 @@
-# fundParser
-fundParser
-
-## fundParser
-fundParser
-
-
+# FundParser
 
 ## Advantages
-1.Parses fund holdings pulled from EDGAR, given a ticker or CIK
+1.Parses fund holdings pulled from EDGAR, given a ticker or CIK<br />
 2. Generates a .tsv file
 
 
@@ -73,5 +67,4 @@ def convert_holdings_tsv(fund_url):convert table to tsv
 python3 -m main 0001166559
 ```
 
-output.tsv file in fundParser directory contains the newly outputted tsv data for the given ticker, 
-in this case the table for Gates Foundation
+output.tsv file in fundParser directory contains the newly outputted tsv data for the given ticker. In this case the table for Gates Foundation
