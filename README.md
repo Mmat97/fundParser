@@ -1,20 +1,40 @@
-# BrandScanner
-BrandScanner
+# fundParser
+fundParser
 
-## BrandScanner
-BrandScanner
-
-
+## fundParser
+fundParser
 
 
 
 ## Advantages
-1.Simply place text in front of camera without having to click anything 
-2. Implements frozen_east+text_detection 
+1.Parses fund holdings pulled from EDGAR, given a ticker or CIK
+2. Generates a .tsv file
 
 
 
+## Installation and Run 
+**Install:** 
 
+```
+	pip3 install requests
+```
+
+```
+	pip3 install beautifulsoup4
+```
+
+```
+	pip3 install lxml
+```
+
+
+**Run:** 
+
+To start, in fundParser directory, 
+
+```
+	python3 -m main (ticker or CIK)
+```
 
 
 
@@ -23,13 +43,7 @@ BrandScanner
 ## Tools/Languages/References
 **Language:** 
 
-[Python3.6](https://www.python.org/)
-
-**Libraries:** 
-
-[NumPy](https://www.numpy.org/)
-
-[OpenCV](https://opencv.org/)
+[Python3.7](https://www.python.org/downloads/)
 
 **OS Used:** 
 
@@ -37,91 +51,27 @@ BrandScanner
 
 **Editors:** 
 -Visual Studio Code 
--vim
-
-**References**
-
-[Install OpenCV](https://www.codingforentrepreneurs.com/blog/opencv-python-web-camera-quick-test/)
-
-[Text Detection](https://github.com/opencv/opencv/blob/master/samples/dnn/text_detection.py)
-
-
-
-
-## Installation and Run 
-**Install:** 
-
-In terminal,once in directory with files,
-
-1.Follow the instructions in the given reference to install opencv and numpy:
-[Install OpenCV](https://www.codingforentrepreneurs.com/blog/opencv-python-web-camera-quick-test/)
-
-
-2.Install Tesseract OCR(Opticsl Character Recognition)
-
-```
-	brew install tesseract --HEAD
-```
-
-```
-	python3 -m pip install pytesseract
-```
-
-```
-	python3 -m pip install imutils
-```
-
-
-
-
-**Run:** 
-
-To start, in file directory, 
-
-```
-	python3 camera-test2.py --east frozen_east_text_detection.pb 
-```
-
-
-
 
 
 
 
 ## Functions
 
-cap = cv2.VideoCapture(0): turn on camera 
+def get_url(tickorcik): get search results 
 
-cv2.imshow(kWinName,frame): show current frame 
+def handle_13FHR(url, forms): get 13F page 
 
+def check_13F_format(file_page): check format of 13F page 
 
+def get_holdings_table(archive_url): obtain link to actual table
 
-
+def convert_holdings_tsv(fund_url):convert table to tsv 
 
 ## Example
 
-BrandScanner : n
+```
+python3 -m main 0001166559
+```
 
-
-
-
-
-
-## Important Notes:
-
-**NOTE 1:** 
-
-
-
-
-
-##Common Errors
-
-1.bashprofile do-make sure evrything correct and then virtualenv module appears
-2. python camera-test.py return ImportError(No module named cv2) because opencv connected
-to python3 only 
-3. Text recognition is not accurate and must be improved
-
-
-
-
+output.tsv file in fundParser directory contains the newly outputted tsv data for the given ticker, 
+in this case the table for Gates Foundation
